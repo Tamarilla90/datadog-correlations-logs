@@ -1,0 +1,63 @@
+openapi: 3.0.0
+
+info:
+  description: "This is a sample server to show logs and traces and correlations between them"
+  version: "1.0.0"
+  title: "Swagger User"
+  contact:
+    email: "tamara.calcerrada@coverwallet.com"
+
+servers:
+  - url: http://localhost:3000/api
+
+tags:
+  - name: "User"
+    description: "Create user"
+
+paths:
+  /user:
+    post:
+      tags:
+        - "user"
+      summary: "Create user"
+      description: "Create user in mongo for to correlations logs http with mongo"
+      operationId: "createUser"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        default:
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+components:
+  schemas:
+    User:
+      type: "object"
+      properties:
+        _id:
+          type: "string"
+          readOnly: true
+        name:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+          writeOnly: true
+        passwordConfirmation:
+          type: "string"
+          writeOnly: true
+        createdAt:
+          type: "string"
+          readOnly: true
+        updatedAt:
+          type: "string"
+          readOnly: true
+        __v:
+          type: "string"
+          readOnly: true

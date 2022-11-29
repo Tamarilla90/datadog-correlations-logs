@@ -5,7 +5,7 @@ info:
   version: "1.0.0"
   title: "Swagger User"
   contact:
-    email: "tamara.calcerrada@coverwallet.com"
+    email: ""
 
 servers:
   - url: http://localhost:3000/api
